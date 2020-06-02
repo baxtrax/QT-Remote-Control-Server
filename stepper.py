@@ -1,4 +1,7 @@
 import constants
+import queue
+import math
+from time import sleep
 
 def initGPIO():
     GPIO.setmode(GPIO.BCM)
@@ -44,3 +47,28 @@ def enableMotors():
 def disableMotors():
     disableFrontMotors()
     disableFrontMotors()
+
+def driveStepper(motorStepPin, motorDirPin, speed_queue):
+    currentSpeed = 0.0
+    while True:
+        try:
+            isEmpty = False
+            speedToDrive = speed_queue.get(block=False, timeout=0)
+        except queue.Empty:
+            isEmpty = True
+        if not (isEmpty):
+            currentSpeed = speedToDrive
+        
+        if not (currentSpeed == 0.0):
+            #If negative switch direction of step
+            if (currentSpeed/math.abs(currentSpeed) == -1):
+                GPIO.output(motorDirPin, constants.CCW)
+            else:
+                GPIO.output(motorDirPin, constants.CW)
+
+            scaledDriveDelay = (constants.MaxSpeedDelay/math.abs(currentSpeed))
+            GPIO.output(motorStepPin, GPIO.HIGH)
+            #time to delay step = delay(0.005)/abs of current speed (0.1 etc)
+            sleep(scaledDriveDelay)
+            GPIO.output(motorStepPin, GPIO.LOW)
+            sleep(scaledDriveDelay)
