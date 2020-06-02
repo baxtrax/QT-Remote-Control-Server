@@ -4,6 +4,9 @@ UDP_IP = "127.0.0.1"
 UDP_PORT = 5020
 expectedPacketLength = 3
 
+CW = 1
+CCW = 0
+
 FR_DIR = 19
 FR_STEP = 26
 FL_DIR = 6
@@ -24,3 +27,5 @@ B_ENA = 24
 
 F_ENA = 22
 B_ENA = 24
+
+MaxSpeedDelay = 0.005
