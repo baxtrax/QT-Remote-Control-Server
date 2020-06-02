@@ -36,6 +36,8 @@ BLThread = threading.Thread(target=stepper.driveStepper, args=(constants.BL_STEP
 BRThread = threading.Thread(target=stepper.driveStepper, args=(constants.BR_STEP, constants.BR_DIR, BR_Queue,)).start()
 print ("Setup threads and queues!")
 
+stepper.enableMotors()
+
 print ("Starting receive loop...")
 while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
