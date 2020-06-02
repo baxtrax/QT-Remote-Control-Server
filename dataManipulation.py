@@ -19,6 +19,7 @@ def calculateBLWheelSpeed(direction, magnitude):
 def calculateBRWheelSpeed(direction, magnitude):
     return (math.sin(direction - (1/4 * math.pi))) * magnitude
 
+#Return FL, FR, BL, BR
 def calculateAllWheelSpeeds(y,x,z):
     direction = calculateWheelDirection(y, x)
     magnitude = calculateWheelDirection(y, x)
