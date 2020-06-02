@@ -34,6 +34,7 @@ FLThread = threading.Thread(target=stepper.driveStepper, args=(constants.FL_STEP
 FRThread = threading.Thread(target=stepper.driveStepper, args=(constants.FR_STEP, constants.FR_DIR, FR_Queue,)).start()
 BLThread = threading.Thread(target=stepper.driveStepper, args=(constants.BL_STEP, constants.BL_DIR, BL_Queue,)).start()
 BRThread = threading.Thread(target=stepper.driveStepper, args=(constants.BR_STEP, constants.BR_DIR, BR_Queue,)).start()
+print ("Setup threads and queues!")
 
 print ("Starting receive loop...")
 while True:
