@@ -1,6 +1,5 @@
 import constants
 import queue
-import math
 from time import sleep
 import RPi.GPIO as GPIO
 
@@ -65,13 +64,13 @@ def driveStepper(motorStepPin, motorDirPin, speed_queue):
         
         if not (currentSpeed == 0.0):
             #If negative switch direction of step
-            if (currentSpeed/math.abs(currentSpeed) == -1):
+            if (currentSpeed/abs(currentSpeed) == -1):
                 GPIO.output(motorDirPin, constants.CCW)
             else:
                 GPIO.output(motorDirPin, constants.CW)
 
             print("Tread: Stepping")
-            scaledDriveDelay = (constants.MaxSpeedDelay/math.abs(currentSpeed))
+            scaledDriveDelay = (constants.MaxSpeedDelay/abs(currentSpeed))
             GPIO.output(motorStepPin, GPIO.HIGH)
             #time to delay step = delay(0.005)/abs of current speed (0.1 etc)
             sleep(scaledDriveDelay)
