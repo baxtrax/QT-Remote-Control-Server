@@ -50,18 +50,13 @@ try:
         if (valditity == True):
             print("Received valid packet! | {} , {} , {}".format(checkedPacket[0], checkedPacket[1], checkedPacket[2]))
             #FL, FR, BL, BR
-            #wheelspeeds = dataManipulation.calculateAllWheelSpeeds(checkedPacket[0], checkedPacket[1], checkedPacket[2])
-            direction = dataManipulation.calculateWheelDirection(checkedPacket[0], checkedPacket[1])
-            magnitude = dataManipulation.calculateWheelMagnitude(checkedPacket[0], checkedPacket[1])
-            FLSpeed = dataManipulation.calculateFLWheelSpeed(direction, magnitude)
-            print("FL Wheel Speed | Mag: {}, Dir: {}, Speed: {}".format(magnitude, direction, FLSpeed))
-            #print("Calculated Wheel Speeds | {} , {} , {} , {}".format(wheelspeeds[0], wheelspeeds[1], wheelspeeds[2], wheelspeeds[3]))
+            wheelspeeds = dataManipulation.calculateAllWheelSpeeds(checkedPacket[0], checkedPacket[1], checkedPacket[2])
+            print("Calculated Wheel Speeds | {} , {} , {} , {}".format(wheelspeeds[0], wheelspeeds[1], wheelspeeds[2], wheelspeeds[3]))
             #FL_Queue.put(wheelspeeds[0])
             #FR_Queue.put(wheelspeeds[1])
             #BL_Queue.put(wheelspeeds[2])
             #BR_Queue.put(wheelspeeds[3])
         else:
-            #global packetLossCount
             packetLossCount += 1
             print ("ERROR: invalid packet received: {}".format(packetLossCount))
             #FL_Queue.put(0.0)
