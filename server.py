@@ -1,10 +1,7 @@
 import socket
 import constants
 import dataTranslation
-import dataManipulation
 #import stepper
-#import threading
-#import queue
 #import RPi.GPIO as GPIO
 
 try:
@@ -26,18 +23,6 @@ try:
     sock.bind((constants.UDP_IP, constants.UDP_PORT))
     print ("Setup communication socket!")
 
-    #print ("Setting up stepper threads and respective queues...")
-    #FL_Queue = queue.Queue()
-    #FR_Queue = queue.Queue()
-    #BL_Queue = queue.Queue()
-    #BR_Queue = queue.Queue()
-
-    #FLThread = threading.Thread(target=stepper.driveStepper, args=(constants.FL_STEP, constants.FL_DIR, FL_Queue,)).start()
-    #FRThread = threading.Thread(target=stepper.driveStepper, args=(constants.FR_STEP, constants.FR_DIR, FR_Queue,)).start()
-    #BLThread = threading.Thread(target=stepper.driveStepper, args=(constants.BL_STEP, constants.BL_DIR, BL_Queue,)).start()
-    #BRThread = threading.Thread(target=stepper.driveStepper, args=(constants.BR_STEP, constants.BR_DIR, BR_Queue,)).start()
-    #print ("Setup threads and queues!")
-
     #stepper.enableMotors()
 
     print ("Starting receive loop...")
@@ -52,17 +37,9 @@ try:
             #FL, FR, BL, BR
             wheelspeeds = dataManipulation.calculateAllWheelSpeeds(checkedPacket[0], checkedPacket[1], checkedPacket[2])
             print("Calculated Wheel Speeds | {} , {} , {} , {}".format(wheelspeeds[0], wheelspeeds[1], wheelspeeds[2], wheelspeeds[3]))
-            #FL_Queue.put(wheelspeeds[0])
-            #FR_Queue.put(wheelspeeds[1])
-            #BL_Queue.put(wheelspeeds[2])
-            #BR_Queue.put(wheelspeeds[3])
         else:
             packetLossCount += 1
             print ("ERROR: invalid packet received: {}".format(packetLossCount))
-            #FL_Queue.put(0.0)
-            #FR_Queue.put(0.0)
-            #BL_Queue.put(0.0)
-            #BR_Queue.put(0.0)
 except KeyboardInterrupt:
     #GPIO.cleanup()
     print("Manual Shutdown.")
