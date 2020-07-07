@@ -15,7 +15,7 @@ def calculateFLWheelSpeed(direction, magnitude):
     return  max(min((((math.sin(direction + (1/4 * math.pi)))) * magnitude), 1.0), -1.0)
 
 def calculateFRWheelSpeed(direction, magnitude):
-    return  max(min((((math.sin(direction - (1/4 * math.pi)))) * magnitude), 1.0), -1.0)
+    return  max(min(((math.sin(direction - (1/4 * math.pi))) * magnitude), 1.0), -1.0)
 
 def calculateBLWheelSpeed(direction, magnitude):
     return  max(min((((math.sin(direction + (1/4 * math.pi)))) * magnitude), 1.0), -1.0)
