@@ -50,13 +50,8 @@ try:
         if (valditity == True):
             print("Received valid packet! | {} , {} , {} , {}".format(checkedPacket[0], checkedPacket[1], checkedPacket[2], checkedPacket[3]))
             #FL, FR, BL, BR
-<<<<<<< HEAD
-            #wheelspeeds = dataManipulation.calculateAllWheelSpeeds(checkedPacket[0], checkedPacket[1], checkedPacket[2])
-            #print("Calculated Wheel Speeds | {} , {} , {} , {}".format(wheelspeeds[0], wheelspeeds[1], wheelspeeds[2], wheelspeeds[3]))
-=======
             wheelspeeds = dataManipulation.calculateAllWheelSpeeds(checkedPacket[0], checkedPacket[1], checkedPacket[2])
             print("Calculated Wheel Speeds | {} , {} , {} , {}".format(wheelspeeds[0], wheelspeeds[1], wheelspeeds[2], wheelspeeds[3]))
->>>>>>> 5dc7e37ad18621ced93afe44516dc5bbfe52cb46
             #FL_Queue.put(wheelspeeds[0])
             #FR_Queue.put(wheelspeeds[1])
             #BL_Queue.put(wheelspeeds[2])
