@@ -23,7 +23,7 @@ BL_STEP = 19
 B_ENA = 23
 B_M0 = 24
 B_M1 = 25
-B_M2 = 26
+B_M2 = 27
 
 F_ENA = 22
 B_ENA = 24
