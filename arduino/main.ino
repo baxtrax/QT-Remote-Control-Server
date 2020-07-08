@@ -4,7 +4,7 @@ void setup() {
 void loop() {
   String val;
   while (Serial.available() > 0) {
-    val = val + (char)Serial.read(); // read data byte by byte and store it
+    val = val + (char)Serial.readStringUntil('\n'); // read data byte by byte and store it
   }
   Serial.print("Received: " + val); // send the received data back to raspberry pi
 }
