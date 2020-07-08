@@ -18,7 +18,7 @@ More details of how parts of this program work and why design decisions where ma
 ## Built With
 
 * [Python 3.7](https://www.python.org/downloads/release/python-370/) - The main programming language used
-* [Raspberry Pi B3+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) - Current Embedded Systems runnning the server
+* [Raspberry Pi B3+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) - Current Embedded Systems running the server
 
 ## Authors
 
