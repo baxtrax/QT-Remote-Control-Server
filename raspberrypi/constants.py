@@ -4,6 +4,11 @@ UDP_IP = "127.0.0.1"
 UDP_PORT = 5020
 expectedPacketLength = 4
 
+SERIAL_PORT = "/dev/ttyACM0"
+SERIAL_BUADRATE = 9600
+
+MAX_STEP_RATE = 400
+
 CW = 1
 CCW = 0
 
@@ -19,5 +24,3 @@ B_M2 = 27
 
 F_ENA = 22
 B_ENA = 24
-
-MaxSpeedDelay = 0.005
