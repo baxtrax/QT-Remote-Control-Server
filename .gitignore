@@ -1,6 +1,4 @@
 .vscode/arduino.json
 .vscode/c_cpp_properties.json
 __pycache__/
-raspberrypi/constants.pyc
-raspberrypi/dataTranslation.pyc
 

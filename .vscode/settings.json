@@ -1,3 +1,4 @@
 {
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": false,
+    "python.autoComplete.extraPaths": ["C:\\Users\\xxfla\\Documents\\Server-Python\\raspberrypi"]
 }

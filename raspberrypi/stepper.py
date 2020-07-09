@@ -1,7 +1,6 @@
 import constants
-import queue
 from time import sleep
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 def initGPIO():
     GPIO.setmode(GPIO.BCM)

@@ -4,7 +4,7 @@ UDP_IP = "127.0.0.1"
 UDP_PORT = 5020
 expectedPacketLength = 4
 
-SERIAL_PORT = "/dev/ttyACM0"
+SERIAL_PORT = "COM3"
 SERIAL_BUADRATE = 9600
 
 MAX_STEP_RATE = 400
