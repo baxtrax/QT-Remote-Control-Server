@@ -34,40 +34,6 @@ boolean newData = false;
 
 //============
 
-void setup() {
-    pinMode(FL_STEP_Pin, OUTPUT);
-    pinMode(FL_DIR_Pin, OUTPUT);
-  
-    pinMode(FR_STEP_Pin, OUTPUT);
-    pinMode(FR_DIR_Pin, OUTPUT);
-  
-    pinMode(BL_STEP_Pin, OUTPUT);
-    pinMode(BL_DIR_Pin, OUTPUT);
-  
-    pinMode(BR_STEP_Pin, OUTPUT);
-    pinMode(BR_DIR_Pin, OUTPUT);
-  
-    Serial.begin(9600);
-}
-
-//============
-
-void loop() {
-    recvWithStartEndMarkers();
-    if (newData == true) {
-        strcpy(tempChars, receivedChars);
-            // this temporary copy is necessary to protect the original data
-            //   because strtok() used in parseData() replaces the commas with \0
-        parseData();
-        //showParsedData();
-        sendSpeedsToSteppers();
-        runSteppers();
-        newData = false;
-    }
-}
-
-//============
-
 void sendSpeedsToSteppers() {
     //Serial.println("Stepping");
     FL_Stepper.setSpeed(FLSpeed);
@@ -145,4 +111,38 @@ void showParsedData() {
     Serial.print("FR: " + String(FRSpeed) + " | ");
     Serial.print("BL: " + String(BLSpeed) + " | ");
     Serial.print("BR: " + String(BRSpeed) + "\n");
+}
+
+//============
+
+void setup() {
+    pinMode(FL_STEP_Pin, OUTPUT);
+    pinMode(FL_DIR_Pin, OUTPUT);
+  
+    pinMode(FR_STEP_Pin, OUTPUT);
+    pinMode(FR_DIR_Pin, OUTPUT);
+  
+    pinMode(BL_STEP_Pin, OUTPUT);
+    pinMode(BL_DIR_Pin, OUTPUT);
+  
+    pinMode(BR_STEP_Pin, OUTPUT);
+    pinMode(BR_DIR_Pin, OUTPUT);
+  
+    Serial.begin(9600);
+}
+
+//============
+
+void loop() {
+    recvWithStartEndMarkers();
+    if (newData == true) {
+        strcpy(tempChars, receivedChars);
+            // this temporary copy is necessary to protect the original data
+            //   because strtok() used in parseData() replaces the commas with \0
+        parseData();
+        //showParsedData();
+        sendSpeedsToSteppers();
+        runSteppers();
+        newData = false;
+    }
 }
