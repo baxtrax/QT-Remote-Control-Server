@@ -4,7 +4,7 @@ import constants
 import dataTranslation
 import serial
 import stepper
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 try:
     packetLossCount = 0
@@ -16,10 +16,10 @@ try:
 
     debug = True
 
-    #stepper.initGPIO()
+    stepper.initGPIO()
 
     #Start Motors disabled
-    #stepper.disableMotors()
+    stepper.disableMotors()
 
     print ("Setting up UDP communication socket on " + constants.UDP_IP + ":" + str(constants.UDP_PORT))
     sock = socket.socket(socket.AF_INET, # Internet
@@ -46,12 +46,12 @@ try:
                 decodedString = msg.decode('ascii').rstrip()
                 print("Serial | Received serial: " + decodedString)
 
-    # print("Setting up serial receive thread.")
-    # SerialReceiveThread = threading.Thread(target=hear)
-    # SerialReceiveThread.start()
-    # print("Setup receive thread")
+   # print("Setting up serial receive thread.")
+   # SerialReceiveThread = threading.Thread(target=hear)
+   # SerialReceiveThread.start()
+   # print("Setup receive thread")
 
-    #stepper.enableMotors()
+    stepper.enableMotors()
 
     print ("Starting main loop...")
     while True:
@@ -68,8 +68,8 @@ try:
             packetLossCount += 1
             print ("Socket | ERROR: invalid packet received. : {}".format(packetLossCount))
 except KeyboardInterrupt:
-    #GPIO.cleanup()
+    GPIO.cleanup()
     print("Manual Shutdown.")
 finally:
     print("Final Cleanup...")
-    #GPIO.cleanup()
+    GPIO.cleanup()

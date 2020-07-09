@@ -1,13 +1,13 @@
 # Constants Module
 
-UDP_IP = "127.0.0.1"
+UDP_IP = "192.168.4.1"
 UDP_PORT = 5020
 expectedPacketLength = 4
 
-SERIAL_PORT = "COM3"
+SERIAL_PORT = "/dev/ttyACM0"
 SERIAL_BUADRATE = 9600
 
-MAX_STEP_RATE = 400
+MAX_STEP_RATE = 800
 
 CW = 1
 CCW = 0
@@ -21,6 +21,3 @@ B_ENA = 23
 B_M0 = 24
 B_M1 = 25
 B_M2 = 27
-
-F_ENA = 22
-B_ENA = 24
