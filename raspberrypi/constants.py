@@ -7,7 +7,7 @@ expectedPacketLength = 4
 SERIAL_PORT = "/dev/ttyACM0"
 SERIAL_BUADRATE = 9600
 
-MAX_STEP_RATE = 800
+MAX_STEP_RATE = 200
 
 CW = 1
 CCW = 0

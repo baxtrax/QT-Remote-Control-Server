@@ -23,6 +23,9 @@ int FRSpeed = 0;
 int BLSpeed = 0;
 int BRSpeed = 0;
 
+const int MaxStepSpeed = 200;
+const int StepAccel = 10;
+
 const byte numChars = 32;
 const char startMarker = '<';
 const char endMarker = '>';
@@ -101,10 +104,16 @@ void parseData() {      // split the data into its parts
 void setup() {
   Serial.begin(9600);
   // Set the maximum speed in steps per second:
-  BLstepper.setMaxSpeed(800);
-  BRstepper.setMaxSpeed(800);
-  FLstepper.setMaxSpeed(800);
-  FRstepper.setMaxSpeed(800);
+  BLstepper.setMaxSpeed(MaxStepSpeed);
+  BRstepper.setMaxSpeed(MaxStepSpeed);
+  FLstepper.setMaxSpeed(MaxStepSpeed);
+  FRstepper.setMaxSpeed(MaxStepSpeed);
+  
+  BLstepper.setAcceleration(StepAccel);
+  BRstepper.setAcceleration(StepAccel);
+  FLstepper.setAcceleration(StepAccel);
+  FRstepper.setAcceleration(StepAccel);
+  
 }
 
 void loop() {
