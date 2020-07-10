@@ -24,6 +24,8 @@ int BLSpeed = 0;
 int BRSpeed = 0;
 
 const byte numChars = 32;
+const char startMarker = '<';
+const char endMarker = '>';
 char receivedChars[numChars];
 char tempChars[numChars];
 
@@ -52,8 +54,6 @@ void runSteppers() {
 void recvWithStartEndMarkers() {
   static boolean recvInProgress = false;
   static byte ndx = 0;
-  char startMarker = '<';
-  char endMarker = '>';
   char rc;
 
   while (Serial.available() > 0 && newData == false) {
@@ -99,6 +99,7 @@ void parseData() {      // split the data into its parts
 }
 
 void setup() {
+  Serial.begin(9600);
   // Set the maximum speed in steps per second:
   BLstepper.setMaxSpeed(800);
   BRstepper.setMaxSpeed(800);
@@ -112,6 +113,7 @@ void loop() {
   if (newData == true) {
     strcpy(tempChars, receivedChars);
     parseData();
+    newData = false;
   }
   sendSpeedsToSteppers();
   runSteppers();
