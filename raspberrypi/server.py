@@ -18,6 +18,18 @@ try:
 
     stepper.initGPIO()
 
+    #For DRV8825 microstep selection
+    #FULL-STEP: 0 0 0
+    #1/2 Step:  1 0 0
+    #1/4 Step:  0 1 0
+    #1/8 Step:  1 1 0
+    #1/16 Step: 0 0 1
+    #1/32 Step: 1 0 1
+    #1/32 Step: 0 1 1
+    #1/32 Step: 1 1 1
+
+    stepper.setMicrostepRes(1,0,0)
+
     #Start Motors disabled
     stepper.disableMotors()
 

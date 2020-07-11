@@ -22,6 +22,20 @@ def initGPIO():
     GPIO.output(constants.F_M1, GPIO.LOW)
     GPIO.output(constants.F_M2, GPIO.LOW)
 
+def setFMicrostepRes(M0,M1,M2):
+    GPIO.output(constants.F_M0, M0)
+    GPIO.output(constants.F_M1, M1)
+    GPIO.output(constants.F_M2, M2)
+
+def setBMicrostepRes(M0,M1,M2):
+    GPIO.output(constants.B_M0, M0)
+    GPIO.output(constants.B_M1, M1)
+    GPIO.output(constants.B_M2, M2)
+
+def setMicrostepRes(M0,M1,M2):
+    setFMicrostepRes(M0,M1,M2)
+    setBMicrostepRes(M0,M1,M2)
+
 def enableFrontMotors():
     GPIO.output(constants.F_ENA, GPIO.LOW)
 
