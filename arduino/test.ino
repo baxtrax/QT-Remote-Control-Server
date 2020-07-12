@@ -23,8 +23,8 @@ int FRSpeed = 0;
 int BLSpeed = 0;
 int BRSpeed = 0;
 
-const int MaxStepSpeed = 400;
-const int StepAccel = 10;
+const int MaxStepSpeed = 300;
+const int StepAccel = 5;
 
 const byte numChars = 32;
 const char startMarker = '<';
@@ -41,9 +41,9 @@ AccelStepper FRstepper = AccelStepper(motorInterfaceType, FRstepPin, FRdirPin);
 boolean newData = false;
 
 void sendSpeedsToSteppers() {
-  BLstepper.setSpeed(-BLSpeed);
+  BLstepper.setSpeed(BLSpeed);
   BRstepper.setSpeed(BRSpeed);
-  FLstepper.setSpeed(-FLSpeed);
+  FLstepper.setSpeed(FLSpeed);
   FRstepper.setSpeed(FRSpeed);
 }
 
