@@ -23,7 +23,7 @@ int FRSpeed = 0;
 int BLSpeed = 0;
 int BRSpeed = 0;
 
-const int MaxStepSpeed = 200;
+const int MaxStepSpeed = 400;
 const int StepAccel = 10;
 
 const byte numChars = 32;
